@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+#mapa { height: 600px; }
+</style>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+<body>
+<button id="ala">Włącz</button>
+<div id="sla">cos</div>
+<div id="mapa">
+</div>
+<script type="text/javascript">
+	var c=0;	//wspolrzedna nr1
+	var b=0;		//wspolrzedna nr2
+	var imie="Jan";		//imie
+	var adres="Żukowa 9";		//adres
+
+	var a=document.querySelector('#sla');
+	document.querySelector('#ala').addEventListener('click', function() 
+	{
+	var r= new XMLHttpRequest();										//tworzymy nowy obiekt typu XMLHttpRequest,
+	r.open('GET','https://jsonplaceholder.typicode.com/users');
+	//r.open('GET','http://otwartedane.gdynia.pl/portal/data/city/10/1');
+	r.onload=function()
+	{
+		
+		for(var i=0; i<10; i++)
+		{
+			//a=data[i].geo.lat;
+			//b=data[i].geo.lng;
+			//imie=data[i].name;
+			//adres=data[i].address.street;
+			//L.marker([a, b]).addTo(mymap).bindPopup(imie+", "+adres).openPopup();
+			alert(data[i].name);
+			//alert("Imię: " +data[i].name+ " Adres: "+data[i].address.street+" Wspolrzedne: "+data[i].geo.lat+" oraz "+data[i].geo.lng);
+		}
+	};
+
+	r.send();});
+
+</script>
+</body>
